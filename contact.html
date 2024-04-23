@@ -397,10 +397,9 @@
             subject: subject,
             message: message,
           };
-          fetch("https://mrtidy-backend.vercel.app").then((res)=>{
-                console.log(res)
-                console.log('get response');
-              })
+          fetch("https://mrtidy-backend.vercel.app").then((res)=>res.json()).then((data)=>{
+            console.log(data);
+          })
 
           // Fetch API to send form data to the server
           fetch("https://mrtidy-backend.vercel.app/send-email", {
