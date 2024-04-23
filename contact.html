@@ -397,6 +397,10 @@
             subject: subject,
             message: message,
           };
+          fetch("https://mrtidy-backend.vercel.app").then((res)=>{
+                console.log(res)
+                console.log('get response');
+              })
 
           // Fetch API to send form data to the server
           fetch("https://mrtidy-backend.vercel.app/send-email", {
@@ -408,6 +412,7 @@
           })
             .then((response) => response.json())
             .then((data) => {
+              console.log(data);
               Swal.fire({
                 title: "Success!",
                 text: "Email sent successfully!",
