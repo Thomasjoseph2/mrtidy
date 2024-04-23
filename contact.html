@@ -383,7 +383,7 @@
 
           const submitButton = document.querySelector("button[type='submit']"); // Select the submit button
           submitButton.disabled = true; // Disable the button to prevent multiple submissions
-
+          submitButton.innerHTML = "SENDING EMAIL...";
           // Retrieve form data
           var name = document.getElementById("name").value;
           var email = document.getElementById("email").value;
@@ -399,7 +399,7 @@
           };
 
           // Fetch API to send form data to the server
-          fetch("http://localhost:5000/send-email", {
+          fetch("https://mrtidy-backend.vercel.app/send-email", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -430,6 +430,7 @@
             })
             .finally(() => {
               submitButton.disabled = false; // Re-enable the button regardless of the fetch outcome
+              submitButton.innerHTML = "SEND MESSAGE";
             });
         });
     </script>
